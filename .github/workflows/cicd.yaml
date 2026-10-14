@@ -175,11 +175,12 @@ jobs:
           LANGSMITH_ENDPOINT: ${{ secrets.LANGSMITH_ENDPOINT }}
           LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
           LANGSMITH_PROJECT: ${{ secrets.LANGSMITH_PROJECT }}
-
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           docker run -d \
             --restart unless-stopped \
             --name stapp \
+            --add-host=host.docker.internal:host-gateway \
             -p 8501:8501 \
             -e GROQ_API_KEY \
             -e GEMINI_API_KEY \
@@ -189,6 +190,7 @@ jobs:
             -e LANGSMITH_ENDPOINT \
             -e LANGSMITH_API_KEY \
             -e LANGSMITH_PROJECT \
+            -e DATABASE_URL \
             "${IMAGE_PATH}:main"
 
       - name: Verify container is running

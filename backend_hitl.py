@@ -358,7 +358,7 @@ def chat_message(state: ChatState):
 toolnode=ToolNode(tools)
 
 
-DB_URI = "postgresql://postgres:Aswin%402004@localhost:5432/langgraph?sslmode=disable"
+DB_URI = os.getenv("DATABASE_URL")
 if not DB_URI:
     raise ValueError("DB_URI is missing from your .env file")
 
