@@ -1,0 +1,30 @@
+For docker image:-
+create Dockerfile and .dockerignore files
+then for github actions create .github folder name should be .github
+
+AWS IAM Steps:-
+Then create one iam user and attach amazonec2fullaccess policy to the user as my project will only need ec2 instance.
+then click on that user.
+then security credentials.
+then create access keys
+select option cli
+download the csv file of secret access key and access key.
+
+AWS EC2 Steps:-
+launch instance
+select os as ubuntu
+select instance type or memory
+create key value pair this is the key to access ec2 from third party tools.
+create key pair
+select two allow options https and http traffic
+32 gb storage write as per the requirement
+launch instance
+click on instance id then connect
+open ec2 instance and then run all the commands mentioned in readme file.
+
+Steps to configure ec2 as a self hosted runner
+open github
+setting>actions>runner>new self hosted runner> choose os> then run command one by one
+enter the name of the runner as mentioned in yaml file
+
+add secret keys to github actions
