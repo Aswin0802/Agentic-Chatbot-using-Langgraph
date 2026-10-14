@@ -36,9 +36,10 @@ model = init_chat_model(
     model_provider="groq",
     temperature=0.2
 )
-
+api_key=os.getenv("GEMINI_API_KEY")
 embedding_model=GoogleGenerativeAIEmbeddings(
-    model="gemini-embedding-001",
+    model="models/gemini-embedding-001",
+    google_api_key=api_key,
 )
 
 
